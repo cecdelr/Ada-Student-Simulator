@@ -1,0 +1,21 @@
+fileFormatVersion: 2
+guid: f9802e2943a0f40368930062ee7c33ca
+timeCreated: 1515010314
+licenseType: Free
+TrueTypeFontImporter:
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Congratulations DEMO
+  fontNames:
+  - Congratulations DEMO
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
