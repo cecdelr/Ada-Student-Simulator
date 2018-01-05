@@ -9,9 +9,9 @@ using Valve.VR;
 
 public class SteamVR_Stats : MonoBehaviour
 {
-	public GUIText text;
+    private GUIText text;
 
-	public Color fadeColor = Color.black;
+    public Color fadeColor = Color.black;
 	public float fadeDuration = 1.0f;
 
 	void Awake()
@@ -31,7 +31,20 @@ public class SteamVR_Stats : MonoBehaviour
 
 	double lastUpdate = 0.0f;
 
-	void Update()
+    public GUIText Text
+    {
+        get
+        {
+            return text;
+        }
+
+        set
+        {
+            text = value;
+        }
+    }
+
+    void Update()
 	{
 		if (text != null)
 		{
