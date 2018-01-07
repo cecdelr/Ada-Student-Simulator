@@ -20,8 +20,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4562519138629486}
   - component: {fileID: 33989731015663228}
+  - component: {fileID: 136852461947600150}
   - component: {fileID: 23109020819433018}
-  - component: {fileID: 65196031186177610}
   - component: {fileID: 54018722051635276}
   m_Layer: 0
   m_Name: LaCodeCan
@@ -99,8 +99,8 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!65 &65196031186177610
-BoxCollider:
+--- !u!136 &136852461947600150
+CapsuleCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
@@ -108,6 +108,7 @@ BoxCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.09494366, y: 0.15346396, z: 0.09029679}
-  m_Center: {x: 0.000000007450581, y: 0.07673198, z: -0.000000007450581}
+  m_Radius: 0.047471836
+  m_Height: 0.15346396
+  m_Direction: 1
+  m_Center: {x: 0.0000000074505815, y: 0.07673198, z: -0.0000000074505815}
