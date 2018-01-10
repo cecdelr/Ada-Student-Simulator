@@ -6,8 +6,10 @@ using UnityEngine.AI;
 
 public class BotMovement : MonoBehaviour {
     public Slider productivity;
+    public int targetReference; // index in target array
+    public float targetProductivityLevel;
 
-    Transform player;               // Reference to the player's position.
+    GameObject player;               // Reference to the player's position.
 
     public float verticalSpeed;
     public float amplitude;
@@ -15,11 +17,19 @@ public class BotMovement : MonoBehaviour {
 
     private Vector3 tempPosition;
     private Vector3 originalPosition;
+    private CapsuleCollider target;
+    private Vector3 targetPosition;
 
 
     void Awake()
     {
-        player = GameObject.FindGameObjectWithTag("Player").transform;
+        player = GameObject.FindGameObjectWithTag("LocationTarget");
+        Debug.Log("Number of Capsule Colliders:" + player.GetComponents<CapsuleCollider>().Length.ToString());
+        target = player.GetComponents<CapsuleCollider>()[targetReference];
+        targetPosition = target.transform.position + target.center;
+        Debug.Log("Target Reference: " + targetReference.ToString());
+        Debug.Log("Capsule Collider Position: " + targetPosition.x.ToString() + ", " + targetPosition.y.ToString() + ", " + targetPosition.z.ToString());
+
     }
     // Use this for initialization
     void Start () {
@@ -32,11 +42,11 @@ public class BotMovement : MonoBehaviour {
     void Update()
     {
 
-        if (productivity.value < 25 && player.position.x != transform.position.x && player.position.z != transform.position.z)
+        if (productivity.value < targetProductivityLevel && targetPosition.x != transform.position.x && targetPosition.z != transform.position.z)
         {
             // go towards player
-			transform.position = Vector3.Lerp(transform.position, player.position, Time.deltaTime * speed);
-        } else if(productivity.value >= 25 && transform.position.x != originalPosition.x && transform.position.z != originalPosition.z)
+			transform.position = Vector3.Lerp(transform.position, targetPosition, Time.deltaTime * speed);
+        } else if(productivity.value >= targetProductivityLevel && transform.position.x != originalPosition.x && transform.position.z != originalPosition.z)
         {
         	// go to original position
 			transform.position = Vector3.Lerp(transform.position, originalPosition, Time.deltaTime * speed);
