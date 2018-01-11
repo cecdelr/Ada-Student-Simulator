@@ -10,6 +10,7 @@ TagManager:
   - LocationTarget
   - ChrisBotFavorites
   - DeeBotFavorites
+  - Button
   layers:
   - Default
   - TransparentFX

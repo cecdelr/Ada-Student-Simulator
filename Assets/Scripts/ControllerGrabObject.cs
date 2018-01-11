@@ -21,7 +21,7 @@ public class ControllerGrabObject : MonoBehaviour {
         //grab object
         if (Controller.GetHairTriggerDown())
         {
-            if (collidingObject)
+            if (collidingObject && collidingObject.tag != "Button")
             {
                 GrabObject();
             }
@@ -35,6 +35,19 @@ public class ControllerGrabObject : MonoBehaviour {
                 ReleaseObject();
             }
         }
+    }
+
+    private void OnCollisionEnter(Collision col)
+    {
+        
+        Debug.Log(col.gameObject.tag);
+        // if it's not a button
+        if (col.gameObject.tag != "Button")
+        {
+            // ignore collision
+            Physics.IgnoreCollision(col.collider, GetComponents<Collider>()[1]);
+        }
+
     }
 
     private void SetCollidingObject(Collider col)
