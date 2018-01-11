@@ -13,7 +13,7 @@ public class BotMovement : MonoBehaviour {
 
     public float verticalSpeed;
     public float amplitude;
-	public float speed;
+    public float speed;
 
     private Vector3 tempPosition;
     private Vector3 originalPosition;
@@ -32,7 +32,7 @@ public class BotMovement : MonoBehaviour {
 
     }
     // Use this for initialization
-    void Start () {
+    void Start() {
         tempPosition = transform.position;
         originalPosition = transform.position;
 
@@ -44,13 +44,25 @@ public class BotMovement : MonoBehaviour {
 
         if (productivity.value < targetProductivityLevel && targetPosition.x != transform.position.x && targetPosition.z != transform.position.z)
         {
-            // go towards player
-			transform.position = Vector3.Lerp(transform.position, targetPosition, Time.deltaTime * speed);
-        } else if(productivity.value >= targetProductivityLevel && transform.position.x != originalPosition.x && transform.position.z != originalPosition.z)
+            moveToTarget();
+        } else if (productivity.value >= targetProductivityLevel && transform.position.x != originalPosition.x && transform.position.z != originalPosition.z)
         {
-        	// go to original position
-			transform.position = Vector3.Lerp(transform.position, originalPosition, Time.deltaTime * speed);
+            moveToOriginalPosition();
         }
+        floatToPosition();
+    }
+
+    private void moveToTarget()
+    {
+        transform.position = Vector3.Lerp(transform.position, targetPosition, Time.deltaTime * speed);
+    }
+
+    private void moveToOriginalPosition()
+    {
+        transform.position = Vector3.Lerp(transform.position, originalPosition, Time.deltaTime * speed);
+    }
+
+    private void floatToPosition (){
         //float up and down
         tempPosition = transform.position;
         tempPosition.y = transform.position.y + Mathf.Sin(Time.realtimeSinceStartup * verticalSpeed) * amplitude;

@@ -8,6 +8,8 @@ TagManager:
   - FxTemporaire
   - Productivity
   - LocationTarget
+  - ChrisBotFavorites
+  - DeeBotFavorites
   layers:
   - Default
   - TransparentFX
