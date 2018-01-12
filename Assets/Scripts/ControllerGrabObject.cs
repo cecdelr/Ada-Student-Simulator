@@ -45,7 +45,7 @@ public class ControllerGrabObject : MonoBehaviour {
         if (col.gameObject.tag != "Button")
         {
             // ignore collision
-            Physics.IgnoreCollision(col.collider, GetComponents<Collider>()[1]);
+            Physics.IgnoreCollision(col.collider, GetComponents<Collider>()[0]);
         }
 
     }
