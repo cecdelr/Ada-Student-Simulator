@@ -23,9 +23,6 @@ public class CollidingObject : MonoBehaviour {
         {
             Destroy(collision.gameObject);
             // 
-        } else
-        {
-            Debug.Log("Chris-Bot is sad you would throw things at him.");
         }
     }
 }

@@ -24,12 +24,8 @@ public class BotMovement : MonoBehaviour {
     void Awake()
     {
         player = GameObject.FindGameObjectWithTag("LocationTarget");
-        Debug.Log("Number of Capsule Colliders:" + player.GetComponents<CapsuleCollider>().Length.ToString());
         target = player.GetComponents<CapsuleCollider>()[targetReference];
         targetPosition = target.transform.position + target.center;
-        Debug.Log("Target Reference: " + targetReference.ToString());
-        Debug.Log("Capsule Collider Position: " + targetPosition.x.ToString() + ", " + targetPosition.y.ToString() + ", " + targetPosition.z.ToString());
-
     }
     // Use this for initialization
     void Start() {
