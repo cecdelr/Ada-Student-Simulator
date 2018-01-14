@@ -1,13 +1,17 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ButtonPressed : MonoBehaviour {
 
+    public Slider productivity;
+    public Text screenText;
     private GameObject buttonBase;
     private Vector3 originalPosition;
     private Vector3 limitedPosition;
     private float bounceBackSpeed;
+    private HashSet<string> buttons = new HashSet<string>() { "WriteTestButton", "WriteCodeButton", "RefactorCodeButton" };
 
 	// Use this for initialization
 	void Start () {
@@ -30,7 +34,10 @@ public class ButtonPressed : MonoBehaviour {
         if (collision.gameObject == buttonBase)
         {
             Physics.IgnoreCollision(buttonBase.GetComponent<Collider>(), GetComponent<Collider>(), true);
-        } 
+        } else
+        {
+            screenText.text = name + " was pressed";
+        }
     }
 
     private void OnCollisionStay(Collision collision)
