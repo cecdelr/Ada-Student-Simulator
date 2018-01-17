@@ -39,12 +39,11 @@ public class ControllerGrabObject : MonoBehaviour {
 
     private void OnCollisionEnter(Collision col)
     {
-        
-        Debug.Log(col.gameObject.tag);
         // if it's not a button
+        // OR you're trying to press a button from below
         if (col.gameObject.tag != "Button")
         {
-            // ignore collision
+            // ignore first collider of controller that isn't a trigger
             Physics.IgnoreCollision(col.collider, GetComponents<Collider>()[0]);
         }
 
