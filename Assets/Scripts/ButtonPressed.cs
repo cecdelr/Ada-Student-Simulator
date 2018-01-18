@@ -8,6 +8,7 @@ public class ButtonPressed : MonoBehaviour {
 
     public Slider productivity;
     public Text screenText;
+    
     private GameObject buttonBase;
     private Vector3 originalPosition;
     private Vector3 limitedPositionAtRange;
@@ -73,7 +74,7 @@ public class ButtonPressed : MonoBehaviour {
     {
         // if the other object in contact with the button is a trigger AND the position of the object is above the button
         if (other.isTrigger && 
-            other.gameObject.transform.position.y > transform.position.y) {
+            other.gameObject.transform.position.y > transform.position.y && CountdownTimer.timeRemaining > 0) {
             //Debug.Log(name);
             Debug.Log("being pressed: " + name + "on trigger enter function nao. collided with " + other.gameObject.name);
             screenText.text = buttonAndEventsList[name]["screenText"];

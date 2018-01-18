@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class CountdownTimer : MonoBehaviour {
 	public Text text;
-	public float timeRemaining; // set as 2 minutes or 120 by default but this can be set to another number
+	public static float timeRemaining; // set as 2 minutes or 120 by default but this can be set to another number
 
 	// Use this for initialization
 	void Start () {

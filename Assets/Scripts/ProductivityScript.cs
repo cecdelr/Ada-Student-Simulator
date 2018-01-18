@@ -29,7 +29,7 @@ public class ProductivityScript : MonoBehaviour {
         //Debug.Log("Time.time = " + Time.time.ToString() + " | lastCheckTime: " + lastCheckTime.ToString() + " | currentProductivityValue: " + currentProductivityValue.ToString());
 
         // while there's time left
-        if (timer.GetComponent<CountdownTimer>().timeRemaining > 0) {
+        if (CountdownTimer.timeRemaining > 0) {
 
             // if it hasn't changed in gapTime seconds
             if (((Time.time - lastCheckTime) > gapTime) && !productiveAction)
