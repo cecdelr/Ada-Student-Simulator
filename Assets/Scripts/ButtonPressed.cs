@@ -84,6 +84,7 @@ public class ButtonPressed : MonoBehaviour {
                 productivity.value += prodNum;
             }
             productivity.value += 5;
+            ProductivityScript.productiveAction = true;
         }
     }
 

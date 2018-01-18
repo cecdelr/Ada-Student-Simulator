@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class CountdownTimer : MonoBehaviour {
 	public Text text;
-	public float timeRemaining;
+	public float timeRemaining; // set as 2 minutes or 120 by default but this can be set to another number
 
 	// Use this for initialization
 	void Start () {
@@ -26,6 +26,15 @@ public class CountdownTimer : MonoBehaviour {
 			timeRemaining -= Time.deltaTime;
 		} else {
 			text.text = "Time Up";
+            // call coroutine to print your score
 		}
 	}
+
+    //invoke repeating
+        // keep decreasing the timer
+
+    // start coroutine after time limit
+        // cancel invoke
+        // display score
+        // remove script from controller
 }
